@@ -1,0 +1,6 @@
+DISCORD_TOKEN=your-bot-token-here
+DISCORD_PUBLIC_KEY=your-application-public-key-here
+DISCORD_APPLICATION_ID=your-application-id-here
+# Optional: set to a guild ID to register/update slash commands instantly during development
+# (omit or leave empty to register commands globally, which can take up to an hour to propagate)
+DEV_GUILD_ID=
