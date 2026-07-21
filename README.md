@@ -45,6 +45,10 @@ own highest role — `/rolemenu add` checks this up front and will tell you if i
 
 ## 3. Local setup
 
+> For a detailed, step-by-step Cloudflare-side setup guide (account creation, `wrangler`
+> login, KV namespace, secrets, deployment, custom domains, troubleshooting — in Japanese),
+> see [docs/cloudflare-setup.md](docs/cloudflare-setup.md).
+
 ```bash
 npm install
 cp .dev.vars.example .dev.vars
