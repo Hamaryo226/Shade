@@ -20,10 +20,18 @@ export async function handleCreate(env: Env, interaction: ApplicationCommandInte
   const description = optionValue(options, "description")!;
   const channelId = optionValue(options, "channel") ?? interaction.channel_id;
 
-  const message = await createChannelMessage(env, channelId, {
-    embeds: [{ title, description }],
-    components: [],
-  });
+  let message: { id: string };
+  try {
+    message = await createChannelMessage(env, channelId, {
+      embeds: [{ title, description }],
+      components: [],
+    });
+  } catch (error) {
+    if (error instanceof DiscordApiError) {
+      return reply(`Failed to create the menu message: ${error.message}`);
+    }
+    throw error;
+  }
 
   const menu: RoleMenu = { guildId: interaction.guild_id, channelId, buttons: [] };
   await putMenu(env, message.id, menu);
